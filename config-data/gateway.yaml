@@ -1,0 +1,35 @@
+server:
+  port: 8080
+  
+eureka:
+  client:
+    fetch-registry: true
+    register-with-eureka: true
+    service-url:
+      default-zone: http://localhost:8761/eureka
+  instance:
+    hostname: localhost
+
+spring:
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          enabled: true
+      routes:
+        - id: MicroService-MilkStgo-AcopioLeche
+          uri: lb://MicroService-MilkStgo-AcopioLeche
+          predicates:
+            - Path=/acopio_leche/**
+        - id: bMicroService-MilkStgo-GrasaYSolidosTotales
+          uri: lb://MilkStgo-GrasaYSolidosTotales
+          predicates:
+            - Path=/grasa_y_solidos_totales/**
+        - id: MicroService-MilkStgo-PlanillaPagoLeche
+          uri: lb://MicroService-MilkStgo-PlanillaPagoLeche
+          predicates:
+            - Path=/planilla_pago_leche/**
+        - id: MicroService-MilkStgo-Proveedores
+          uri: lb://MicroService-MilkStgo-Proveedores
+          predicates:
+            - Path=/proveedores/**

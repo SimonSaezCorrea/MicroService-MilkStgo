@@ -1,0 +1,19 @@
+spring:
+  application:
+    name: milkstgo_microservice_acopioleche
+  cloud:
+    config:
+      enabled: true
+      uri: http://localhost:8081
+  jpa:
+    database: POSTGRESQL
+    show-sql: true
+    hibernate:
+      ddl-auto: create
+  datasource:
+    plataform: postgres
+    driver-class-name: org.postgresql.Driver
+    dbname: MilkStgo_AcopioLeche
+    url: jdbc:postgresql://localhost:5432/MilkStgo_MicroService
+    username: postgres
+    password: Simon_789
