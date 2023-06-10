@@ -21,15 +21,15 @@ spring:
           uri: lb://MicroService-MilkStgo-AcopioLeche
           predicates:
             - Path=/acopio_leche/**
-        - id: bMicroService-MilkStgo-GrasaYSolidosTotales
+        - id: MicroService-MilkStgo-GrasaYSolidosTotales
           uri: lb://MilkStgo-GrasaYSolidosTotales
           predicates:
-            - Path=/grasa_y_solidos_totales/**
+            - Path=/grasa_solidos_totales/**
         - id: MicroService-MilkStgo-PlanillaPagoLeche
           uri: lb://MicroService-MilkStgo-PlanillaPagoLeche
           predicates:
-            - Path=/planilla_pago_leche/**
+            - Path=/pago_planilla/**
         - id: MicroService-MilkStgo-Proveedores
           uri: lb://MicroService-MilkStgo-Proveedores
           predicates:
-            - Path=/proveedores/**
+            - Path=/proveedor/**
