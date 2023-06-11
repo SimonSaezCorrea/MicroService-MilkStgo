@@ -1,6 +1,6 @@
 spring:
   application:
-    name: milkstgo_microservice_grasaysolidostotales
+    name: MicroService-MilkStgo-GrasaYSolidosTotales
   cloud:
     config:
       enabled: true

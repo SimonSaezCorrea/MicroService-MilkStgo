@@ -4,6 +4,7 @@ import Tingeso.MicroServiceMilkStgoPlanillaPagoLeche.entity.QuincenasEntity;
 import Tingeso.MicroServiceMilkStgoPlanillaPagoLeche.model.*;
 import Tingeso.MicroServiceMilkStgoPlanillaPagoLeche.repository.QuincenasRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
@@ -22,6 +23,12 @@ public class QuincenasService {
         QuincenasEntity quincenasEntityNew = quincenasRepository.save(quincenasEntity);
         return quincenasEntityNew;
     }
+
+    public QuincenasEntity encontrarPorFechaYProveedor(String proveedor_id, String fecha){
+        QuincenasEntity quincenasEntity = quincenasRepository.encontrarPorFechaYProveedor(proveedor_id, fecha);
+        return  quincenasEntity;
+    }
+
 
     public List<ProveedorEntity> getProveedores(){
 
@@ -134,7 +141,7 @@ public class QuincenasService {
     //----------------------------------------------------------------------------------------------------
 
     public int descuentoVariacionLeche(List<AcopioLecheEntity> listAcopioLecheEntity){
-        QuincenasEntity quincenasEntity = quincenasRepository.encontrarUltimo(listAcopioLecheEntity.get(0).getProveedor_id());
+        QuincenasEntity quincenasEntity = quincenasRepository.encontrarUltimo(listAcopioLecheEntity.get(0).getProveedor_id()).get(0);
         if(quincenasEntity==null){
             return 0;
         }
@@ -161,7 +168,7 @@ public class QuincenasService {
         }
     }
     public int descuentoVariacionGrasa(GrasaSolidoTotalEntity grasaSolidoTotalEntity){
-        QuincenasEntity quincenasEntity = quincenasRepository.encontrarUltimo(grasaSolidoTotalEntity.getProveedor_id());
+        QuincenasEntity quincenasEntity = quincenasRepository.encontrarUltimo(grasaSolidoTotalEntity.getProveedor_id()).get(0);
         if(quincenasEntity==null){
             return 0;
         }
@@ -183,7 +190,7 @@ public class QuincenasService {
         }
     }
     public int descuentoVariacionSolidoTotal(GrasaSolidoTotalEntity grasaSolidoTotalEntity){
-        QuincenasEntity quincenasEntity = quincenasRepository.encontrarUltimo(grasaSolidoTotalEntity.getProveedor_id());
+        QuincenasEntity quincenasEntity = quincenasRepository.encontrarUltimo(grasaSolidoTotalEntity.getProveedor_id()).get(0);
         if(quincenasEntity==null){
             return 0;
         }

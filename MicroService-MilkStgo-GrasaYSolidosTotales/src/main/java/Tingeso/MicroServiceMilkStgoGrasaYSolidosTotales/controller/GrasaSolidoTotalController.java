@@ -7,7 +7,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import java.util.List;
 import java.util.Objects;
@@ -22,15 +21,11 @@ public class GrasaSolidoTotalController {
     private ArchivosService archivosService;
 
     @PostMapping("/subir_grasaSolidoTotal")
-    public ResponseEntity<MultipartFile> upload(@RequestParam("file") MultipartFile file, RedirectAttributes redirectAttributes) {
+    public ResponseEntity<MultipartFile> upload(@RequestParam("file") MultipartFile file) {
         System.out.println("File: " + file.getOriginalFilename());
         if(!Objects.equals(file.getOriginalFilename(), "")){
             archivosService.guardarArchivo(file);
-            redirectAttributes.addFlashAttribute("mensaje", "¡Archivo cargado correctamente!");
             grasaSolidoTotalesService.leerArchivoGrasaSolido(file.getOriginalFilename());
-        }
-        else{
-            redirectAttributes.addFlashAttribute("mensaje", "No se ha cargado algún archivo");
         }
         return ResponseEntity.ok(file);
     }

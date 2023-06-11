@@ -1,12 +1,12 @@
 spring:
   application:
-    name: milkstgo_microservice_proveedor
+    name: MicroService-MilkStgo-Proveedores
   cloud:
     config:
       enabled: true
       uri: http://localhost:8081
   jpa:
-    database: POSTGRESQL
+    database: postgresql
     show-sql: true
     hibernate:
       ddl-auto: create

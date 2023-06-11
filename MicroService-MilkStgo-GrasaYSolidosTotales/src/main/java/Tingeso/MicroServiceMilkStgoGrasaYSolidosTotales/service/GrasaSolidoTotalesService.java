@@ -5,7 +5,6 @@ import Tingeso.MicroServiceMilkStgoGrasaYSolidosTotales.repository.GrasaSolidoTo
 import lombok.Generated;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.web.client.RestTemplate;
 
 import java.util.List;
 
@@ -15,8 +14,6 @@ public class GrasaSolidoTotalesService {
     GrasaSolidoTotalRepository grasaSolidoTotalRepository;
     @Autowired
     ArchivosService archivosService;
-    @Autowired
-    RestTemplate restTemplate;
     public GrasaSolidoTotalEntity guardarGrasaSolidoTotal(GrasaSolidoTotalEntity grasaSolidoTotalesEntity) {
         GrasaSolidoTotalEntity grasaSolidoTotalEntityNew = grasaSolidoTotalRepository.save(grasaSolidoTotalesEntity);
         return grasaSolidoTotalEntityNew;

@@ -1,6 +1,6 @@
 spring:
   application:
-    name: milkstgo_microservice_acopioleche
+    name: MicroService-MilkStgo-AcopioLeche
   cloud:
     config:
       enabled: true

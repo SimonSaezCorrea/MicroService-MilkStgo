@@ -1,6 +1,6 @@
 spring:
   application:
-    name: milkstgo_microservice_planillapagoleche
+    name: MicroService-MilkStgo-PlanillaPagoLeche
   cloud:
     config:
       enabled: true
