@@ -20,7 +20,7 @@ public class GrasaSolidoTotalController {
     @Autowired
     private ArchivosService archivosService;
 
-    @PostMapping("/subir_grasaSolidoTotal")
+    @PostMapping("/subir_grasaSolidoTotal/{file}")
     public ResponseEntity<MultipartFile> upload(@RequestParam("file") MultipartFile file) {
         System.out.println("File: " + file.getOriginalFilename());
         if(!Objects.equals(file.getOriginalFilename(), "")){

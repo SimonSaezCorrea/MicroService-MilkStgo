@@ -20,7 +20,7 @@ public class AcopioLecheController {
     @Autowired
     private ArchivosService archivosService;
 
-    @PostMapping("/subir_acopioLeche")
+    @PostMapping("/subir_acopioLeche/{file}")
     public ResponseEntity<MultipartFile> upload(@RequestParam("file") MultipartFile file) {
         if(!Objects.equals(file.getOriginalFilename(), "")){
             archivosService.guardarArchivo(file);
