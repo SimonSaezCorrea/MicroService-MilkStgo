@@ -16,11 +16,14 @@ function MainComponents() {
     const handleClickAcopioLeche = () => {
         navigate("/lista_acopio_leche");
     }
+    const handleClickSubirAcopioLeche = () => {
+        navigate("/subir_excel_acopio");
+    }
     return(
         <div>
             <HeaderComponent></HeaderComponent>
             <div class="container">
-                <div class="card" onClick={""}>
+                <div class="card" onClick={handleClickSubirAcopioLeche}>
                     <img id="excel_acopioLeche" src={Excel} alt="Imagen_1" />
                     <h2>Agregar Acopio de leche mediante excel</h2>
                 </div>

@@ -3,17 +3,17 @@ import '../styles/listas.css'
 import ProveedorService from '../services/ProveedorService'
 import HeaderComponent from './HeaderComponent'
 
-class listado_proveedores extends Component {
+class ListadoProveedoresComponent extends Component {
     constructor(props){
         super(props)
         this.state = {
-            proveedores: [],
+            listProveedores: [],
         };
     }
 
     componentDidMount(){
         ProveedorService.getProveedores().then((res) => {
-        this.setState({ proveedores: res.data});
+        this.setState({ listProveedores: res.data});
             });
     }
 
@@ -34,7 +34,7 @@ class listado_proveedores extends Component {
                         </thead>
                         <tbody>
                             {
-                                this.state.proveedores.map(
+                                this.state.listProveedores.map(
                                     proveedor => (
                                     <tr key= {proveedor.proveedor_id}>
                                         <td> {proveedor.proveedor_id} </td>
@@ -52,4 +52,4 @@ class listado_proveedores extends Component {
     }
 }
 
-export default listado_proveedores
+export default ListadoProveedoresComponent

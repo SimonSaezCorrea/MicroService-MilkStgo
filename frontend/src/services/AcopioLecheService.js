@@ -1,20 +1,16 @@
 import axios from 'axios';
 
-const PROVEEDOR_API_URL = "http://localhost:8080/proveedor";
+const ACOPIOLECHE_API_URL = "http://localhost:8080/acopio_leche";
 
-class ProveedorService {
+class AcopioLecheService {
 
-    getProveedores(){
-        return axios.get(PROVEEDOR_API_URL);
+    getAcopioLeche(){
+        return axios.get(ACOPIOLECHE_API_URL);
     }
 
-    createProveedores(proveedor){
-        return axios.post(PROVEEDOR_API_URL, proveedor);
-    }
-
-    getProveedorById(proveedorId){
-        return axios.get(PROVEEDOR_API_URL + '/' + proveedorId);
+    createAcopioLeche(acopioLeche){
+        return axios.post(ACOPIOLECHE_API_URL, acopioLeche);
     }
 }
 
-export default new ProveedorService()
+export default new AcopioLecheService()
