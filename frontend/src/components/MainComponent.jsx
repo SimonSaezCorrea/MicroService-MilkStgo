@@ -10,8 +10,11 @@ import HeaderComponent from './HeaderComponent';
 
 function MainComponents() {
     const navigate = useNavigate();
-    const handleClick = () => {
+    const handleClickProveedores = () => {
         navigate("/lista_proveedores");
+    }
+    const handleClickAcopioLeche = () => {
+        navigate("/lista_acopio_leche");
     }
     return(
         <div>
@@ -32,11 +35,11 @@ function MainComponents() {
             </div>
 
             <div class="container">
-                <div class="card" onClick={""}>
+                <div class="card" onClick={handleClickAcopioLeche}>
                     <img id="lista_acopioLeche" src={CajaDeLeche} alt="Imagen_4" />
                     <h2>Listado de Acopio de leche</h2>
                 </div>
-                <div class="card" onClick={handleClick}>
+                <div class="card" onClick={handleClickProveedores}>
                     <img id="lista_proveedores" src={GrupoDeUsuarios} alt="Imagen_5" />
                     <h2>Listado de proveedores</h2>
                 </div>
