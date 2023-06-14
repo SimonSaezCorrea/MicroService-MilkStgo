@@ -1,5 +1,6 @@
 package Tingeso.MicroServiceMilkStgoProveedores.controller;
 
+import org.springframework.web.bind.annotation.CrossOrigin;
 import Tingeso.MicroServiceMilkStgoProveedores.entity.ProveedorEntity;
 import Tingeso.MicroServiceMilkStgoProveedores.service.ProveedorService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,6 +11,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/proveedor")
+@CrossOrigin(origins = "http://localhost:3000")
 public class ProveedorController {
 
     @Autowired
