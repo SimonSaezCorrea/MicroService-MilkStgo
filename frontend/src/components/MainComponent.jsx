@@ -16,8 +16,14 @@ function MainComponents() {
     const handleClickAcopioLeche = () => {
         navigate("/lista_acopio_leche");
     }
+    const handleClickGrasaYSolido = () => {
+        navigate("/lista_grasa_y_solido");
+    }
     const handleClickSubirAcopioLeche = () => {
         navigate("/subir_excel_acopio");
+    }
+    const handleClickSubirGrasaYLeche = () => {
+        navigate("/subir_excel_grasa_solido");
     }
     return(
         <div>
@@ -31,7 +37,7 @@ function MainComponents() {
                     <img id="reporte_de_pagos" src={ReportePago} alt="Imagen_2" />
                     <h2>Planilla de pagos</h2>
                 </div>
-                <div class="card" onClick={""}>
+                <div class="card" onClick={handleClickSubirGrasaYLeche}>
                     <img id="excel_grasas_solidosTotales" src={Excel} alt="Imagen_3" />
                     <h2>Agregar grasas y solidos totales mediante excel</h2>
                 </div>
@@ -47,7 +53,7 @@ function MainComponents() {
                     <h2>Listado de proveedores</h2>
                 </div>
 
-                <div class="card" onClick={""}>
+                <div class="card" onClick={handleClickGrasaYSolido}>
                     <img id="pagos_datos" src={PorcentajeGrasa} alt="Imagen_6" />
                     <h2>Listado de Grasa y Solidos Totales</h2>
                 </div>

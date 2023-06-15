@@ -7,12 +7,16 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import java.io.FileNotFoundException;
+import java.text.ParseException;
 import java.util.List;
 import java.util.Objects;
 
 @RestController
 @RequestMapping("/grasa_solidos_totales")
+@CrossOrigin(origins = "http://localhost:3000")
 public class GrasaSolidoTotalController {
 
     @Autowired
@@ -20,14 +24,12 @@ public class GrasaSolidoTotalController {
     @Autowired
     private ArchivosService archivosService;
 
-    @PostMapping("/subir_grasaSolidoTotal/{file}")
-    public ResponseEntity<MultipartFile> upload(@RequestParam("file") MultipartFile file) {
-        System.out.println("File: " + file.getOriginalFilename());
+    @PostMapping("/subirGrasaSolidoTotal")
+    public void upload(@RequestParam("file") MultipartFile file, RedirectAttributes ms) throws FileNotFoundException, ParseException {
         if(!Objects.equals(file.getOriginalFilename(), "")){
             archivosService.guardarArchivo(file);
             grasaSolidoTotalesService.leerArchivoGrasaSolido(file.getOriginalFilename());
         }
-        return ResponseEntity.ok(file);
     }
 
     @GetMapping()

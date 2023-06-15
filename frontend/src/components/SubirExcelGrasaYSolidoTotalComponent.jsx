@@ -4,11 +4,11 @@ import Form from "react-bootstrap/Form";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import HeaderComponent from "./HeaderComponent";
-import SubirExcelLecheService from "../services/SubirExcelLecheService";
+import SubirExcelGrasaYLecheService from "../services/SubirExcelGrasaYLecheService";
 import swal from "sweetalert";
 import "../styles/subir_excel.css"
 
-class SubirExcelAcopioLecheComponent extends Component {
+class SubirExcelGrasaYSolidoTotalComponent extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -32,7 +32,7 @@ class SubirExcelAcopioLecheComponent extends Component {
                 swal("Archivo cargado correctamente!", { icon: "success", timer: "3000" });
                 const formData = new FormData();
                 formData.append("file", this.state.file);
-                SubirExcelLecheService.CargarArchivoAcopio(formData).then((res) => {});
+                SubirExcelGrasaYLecheService.CargarArchivoGrasaYSolido(formData).then((res) => {});
             } else {
                 swal({ text: "Archivo no cargado.", icon: "error" });
             }
@@ -72,4 +72,4 @@ class SubirExcelAcopioLecheComponent extends Component {
         );
     }
 }
-export default SubirExcelAcopioLecheComponent;
+export default SubirExcelGrasaYSolidoTotalComponent;
