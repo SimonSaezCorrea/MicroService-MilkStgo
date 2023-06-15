@@ -22,7 +22,7 @@ spring:
           predicates:
             - Path=/acopio_leche/**
         - id: MicroService-MilkStgo-GrasaYSolidosTotales
-          uri: lb://MilkStgo-GrasaYSolidosTotales
+          uri: lb://MicroService-MilkStgo-GrasaYSolidosTotales
           predicates:
             - Path=/grasa_solidos_totales/**
         - id: MicroService-MilkStgo-PlanillaPagoLeche
