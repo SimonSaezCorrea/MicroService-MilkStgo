@@ -30,10 +30,10 @@ public class QuincenasService {
     }
 
 
-    public List<ProveedorEntity> getProveedores(){
+    public List<QuincenasEntity> getQuincenas(){
 
-        List<ProveedorEntity> proveedores = restTemplate.getForObject("http://MicroService-MilkStgo-Proveedores/proveedor/", List.class);
-        return proveedores;
+        List<QuincenasEntity> quincenasEntities = quincenasRepository.findAll();
+        return quincenasEntities;
     }
 
     public List<ProveedorEntity> getProveedor(String proveedor_id){

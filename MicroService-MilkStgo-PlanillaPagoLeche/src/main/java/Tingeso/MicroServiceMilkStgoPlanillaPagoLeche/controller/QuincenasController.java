@@ -14,10 +14,17 @@ import java.util.List;
 
 @Controller
 @RequestMapping("/pago_planilla")
+@CrossOrigin(origins = "http://localhost:3000")
 public class QuincenasController {
 
     @Autowired
     private QuincenasService quincenasService;
+
+    @GetMapping()
+    public ResponseEntity<List<QuincenasEntity>> listar() {
+        List<QuincenasEntity> quincenasEntities = quincenasService.getQuincenas();
+        return ResponseEntity.ok(quincenasEntities);
+    }
 
     @PostMapping()
     public ResponseEntity<QuincenasEntity> nuevaQuincena(@PathVariable("proveedor_id") String proveedor_id){

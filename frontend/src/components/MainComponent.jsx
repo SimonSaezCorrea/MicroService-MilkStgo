@@ -25,6 +25,9 @@ function MainComponents() {
     const handleClickSubirGrasaYLeche = () => {
         navigate("/subir_excel_grasa_solido");
     }
+    const handleClickPlanillaDePagoTodoUsuario = () => {
+        navigate("/planilla_de_pago");
+    }
     return(
         <div>
             <HeaderComponent></HeaderComponent>
@@ -33,7 +36,7 @@ function MainComponents() {
                     <img id="excel_acopioLeche" src={Excel} alt="Imagen_1" />
                     <h2>Agregar Acopio de leche mediante excel</h2>
                 </div>
-                <div class="card" onClick={""}>
+                <div class="card" onClick={handleClickPlanillaDePagoTodoUsuario}>
                     <img id="reporte_de_pagos" src={ReportePago} alt="Imagen_2" />
                     <h2>Planilla de pagos</h2>
                 </div>
