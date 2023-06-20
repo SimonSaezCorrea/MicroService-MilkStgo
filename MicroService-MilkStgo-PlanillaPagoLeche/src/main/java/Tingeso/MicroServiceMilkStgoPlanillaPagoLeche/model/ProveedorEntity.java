@@ -9,6 +9,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class ProveedorEntity {
     private Integer Quincena_id;
+    private String proveedor_id;
     private String nombre;
     private String categoria;
     private String afecto_retencion;

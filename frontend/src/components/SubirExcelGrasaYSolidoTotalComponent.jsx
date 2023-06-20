@@ -3,7 +3,7 @@ import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-import HeaderComponent from "./HeaderComponent";
+import HeaderComponentVentanaSiguiente from "./Headers/HeaderComponentVentanaSiguiente";
 import SubirExcelGrasaYLecheService from "../services/SubirExcelGrasaYLecheService";
 import swal from "sweetalert";
 import "../styles/subir_excel.css"
@@ -42,11 +42,11 @@ class SubirExcelGrasaYSolidoTotalComponent extends Component {
     render() {
         return (
             <div>
-                <HeaderComponent></HeaderComponent>
+                <HeaderComponentVentanaSiguiente></HeaderComponentVentanaSiguiente>
                 <div class="f">
                     <div class="container">
                         <h1>
-                            <b>Cargar el archivo de datos</b>
+                            <b>Cargar el archivo de datos de Grasa Y Solidos Totales</b>
                         </h1>
                         <Row className="mt-4">
                             <Col col="12">

@@ -8,6 +8,7 @@ import SubirExcelAcopioLecheComponent from "./components/SubirExcelAcopioLecheCo
 import SubirExcelGrasaYSolidoTotalComponent from "./components/SubirExcelGrasaYSolidoTotalComponent";
 import ListadoGrasaYSolidosTotalesComponent from "./components/ListadoGrasaYSolidosTotalesComponent";
 import PlanillaDePagoTodoUsuarioComponent from "./components/PlanillaDePagoTodoUsuarioComponent";
+import PlanillaDePagoComponent from "./components/PlanillaDePagoComponent";
 
 function App() {
     return (
@@ -21,6 +22,7 @@ function App() {
                       <Route path="/subir_excel_acopio" element={<SubirExcelAcopioLecheComponent />} />
                       <Route path="/subir_excel_grasa_solido" element={<SubirExcelGrasaYSolidoTotalComponent />} />
                       <Route path="/planilla_de_pago" element={<PlanillaDePagoTodoUsuarioComponent />} />
+                      <Route path="/planilla_de_pago/:proveedor_id" element={<PlanillaDePagoComponent />} />
                   </Routes>
             </Router>
         </div>

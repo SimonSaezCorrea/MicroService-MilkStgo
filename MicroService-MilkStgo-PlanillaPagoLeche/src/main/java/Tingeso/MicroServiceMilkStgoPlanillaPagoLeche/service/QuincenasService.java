@@ -4,7 +4,9 @@ import Tingeso.MicroServiceMilkStgoPlanillaPagoLeche.entity.QuincenasEntity;
 import Tingeso.MicroServiceMilkStgoPlanillaPagoLeche.model.*;
 import Tingeso.MicroServiceMilkStgoPlanillaPagoLeche.repository.QuincenasRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.repository.query.Param;
+import org.springframework.core.ParameterizedTypeReference;
+import org.springframework.http.HttpMethod;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
@@ -24,21 +26,37 @@ public class QuincenasService {
         return quincenasEntityNew;
     }
 
-    public QuincenasEntity encontrarPorFechaYProveedor(String proveedor_id, String fecha){
-        QuincenasEntity quincenasEntity = quincenasRepository.encontrarPorFechaYProveedor(proveedor_id, fecha);
-        return  quincenasEntity;
+    public QuincenasEntity encontrarPorProveedor(String proveedor_id){
+
+        List<QuincenasEntity> quincenasEntities = quincenasRepository.encontrarUltimo(proveedor_id);
+        if (!quincenasEntities.isEmpty()){
+            return quincenasEntities.get(0);
+        }
+        return  null;
     }
 
+    public List<ProveedorEntity> getProveedores(){
 
-    public List<QuincenasEntity> getQuincenas(){
+        //List<ProveedorEntity> proveedores = restTemplate.getForObject("http://MicroService-MilkStgo-Proveedores/proveedor/", List.class);
 
-        List<QuincenasEntity> quincenasEntities = quincenasRepository.findAll();
-        return quincenasEntities;
+        ResponseEntity<List<ProveedorEntity>> response = restTemplate.exchange(
+                "http://MicroService-MilkStgo-Proveedores/proveedor/",
+                HttpMethod.GET,
+                null,
+                new ParameterizedTypeReference<List<ProveedorEntity>>() {}
+        );
+        List<ProveedorEntity> proveedores = response.getBody();
+        return proveedores;
     }
-
     public List<ProveedorEntity> getProveedor(String proveedor_id){
-
-        List<ProveedorEntity> proveedor = restTemplate.getForObject("http://MicroService-MilkStgo-Proveedores/proveedor/" + proveedor_id, List.class);
+        ResponseEntity<List<ProveedorEntity>> response = restTemplate.exchange(
+                "http://MicroService-MilkStgo-Proveedores/proveedor/" + proveedor_id,
+                HttpMethod.GET,
+                null,
+                new ParameterizedTypeReference<List<ProveedorEntity>>() {}
+        );
+        List<ProveedorEntity> proveedor = response.getBody();
+        System.out.println(proveedor.get(0));
         return proveedor;
     }
 

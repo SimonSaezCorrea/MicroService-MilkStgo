@@ -45,3 +45,7 @@
     color: #ffbc0e;
     transform: scale(1.1);
 }
+.header div h1:hover {
+    cursor: pointer;
+  }
+  

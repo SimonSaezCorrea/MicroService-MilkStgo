@@ -13,6 +13,6 @@ public interface QuincenasRepository extends JpaRepository<QuincenasEntity, Inte
     @Query("select e from QuincenasEntity e where e.proveedor_id = :proveedor_id order by e.quincena_id desc")
     List<QuincenasEntity> encontrarUltimo(@Param("proveedor_id") String proveedor_id);
 
-    @Query("select e from QuincenasEntity e where e.proveedor_id = :proveedor_id and e.fecha = :fecha")
-    QuincenasEntity encontrarPorFechaYProveedor(@Param("proveedor_id") String proveedor_id, @Param("fecha") String fecha);
+    @Query("select e from QuincenasEntity e where e.proveedor_id = :proveedor_id order by e.quincena_id desc")
+    List<QuincenasEntity> encontrarPorProveedor(@Param("proveedor_id") String proveedor_id);
 }

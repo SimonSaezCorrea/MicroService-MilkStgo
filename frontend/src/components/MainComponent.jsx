@@ -6,7 +6,7 @@ import CajaDeLeche from "../images/caja-de-leche.png"
 import GrupoDeUsuarios from "../images/grupo-de-usuarios.png"
 import PorcentajeGrasa from "../images/porcentaje-grasa.png"
 import ReportePago from "../images/reporte-pago.png"
-import HeaderComponent from './HeaderComponent';
+import HeaderComponent from './Headers/HeaderComponent';
 
 function MainComponents() {
     const navigate = useNavigate();

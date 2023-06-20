@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import '../styles/listas.css'
 import ProveedorService from '../services/ProveedorService'
-import HeaderComponent from './HeaderComponent'
+import HeaderComponentVentanaSiguiente from './Headers/HeaderComponentVentanaSiguiente'
 
 class ListadoProveedoresComponent extends Component {
     constructor(props){
@@ -20,7 +20,7 @@ class ListadoProveedoresComponent extends Component {
     render(){
         return(
             <div>
-                <HeaderComponent></HeaderComponent>
+                <HeaderComponentVentanaSiguiente></HeaderComponentVentanaSiguiente>
                 <div align="center" class="container my-2">
                     <h1><b> Listado de proveedores</b></h1>
                     <table border="1" class="content-table">

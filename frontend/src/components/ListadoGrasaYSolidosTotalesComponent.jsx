@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import '../styles/listas.css'
 import GrasaYSolidosTotalesService from '../services/GrasaYSolidosTotalesService'
-import HeaderComponent from './HeaderComponent'
+import HeaderComponentVentanaSiguiente from './Headers/HeaderComponentVentanaSiguiente'
 
 class ListadoGrasaYSolidosTotalesComponent extends Component {
     constructor(props){
@@ -10,7 +10,7 @@ class ListadoGrasaYSolidosTotalesComponent extends Component {
             listGrasaYSolidoTotal: [],
         };
     }
-
+    
     componentDidMount(){
         GrasaYSolidosTotalesService.getGrasaYSolidosTotales().then((res) => {
         this.setState({ listGrasaYSolidoTotal: res.data});
@@ -20,7 +20,7 @@ class ListadoGrasaYSolidosTotalesComponent extends Component {
     render(){
         return(
             <div>
-                <HeaderComponent></HeaderComponent>
+                <HeaderComponentVentanaSiguiente></HeaderComponentVentanaSiguiente>
                 <div align="center" class="container my-2">
                     <h1><b> Listado de Grasa Y Solidos Totales</b></h1>
                     <table border="1" class="content-table">
