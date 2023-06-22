@@ -3,8 +3,8 @@ import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-import HeaderComponentVentanaSiguiente from "./Headers/HeaderComponentVentanaSiguiente";
 import SubirExcelLecheService from "../services/SubirExcelLecheService";
+import HeaderComponentListaAcopio from "./Headers/HeaderComponentListaAcopio";
 import swal from "sweetalert";
 
 class SubirExcelAcopioLecheComponent extends Component {
@@ -41,7 +41,7 @@ class SubirExcelAcopioLecheComponent extends Component {
     render() {
         return (
             <div>
-                <HeaderComponentVentanaSiguiente></HeaderComponentVentanaSiguiente>
+                <HeaderComponentListaAcopio></HeaderComponentListaAcopio>
                 <div class="f">
                     <div class="container-excel">
                         <h1>

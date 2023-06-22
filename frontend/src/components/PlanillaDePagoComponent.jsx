@@ -38,6 +38,7 @@ export default function PlanillaDePagoComponent() {
                         <tr>
                             {quincenasEntity && (
                                 <>
+                                    <td>{quincenasEntity.proveedor_id}</td>
                                     <td>{quincenasEntity.nombreProveedor}</td>
                                     <td>{quincenasEntity.fecha}</td>
                                     <td>{quincenasEntity.bonificacion}</td>

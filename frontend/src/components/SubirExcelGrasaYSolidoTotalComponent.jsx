@@ -3,7 +3,7 @@ import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-import HeaderComponentVentanaSiguiente from "./Headers/HeaderComponentVentanaSiguiente";
+import HeaderComponentListaGrasa from "./Headers/HeaderComponentListaGrasa";
 import SubirExcelGrasaYLecheService from "../services/SubirExcelGrasaYLecheService";
 import swal from "sweetalert";
 
@@ -41,7 +41,7 @@ class SubirExcelGrasaYSolidoTotalComponent extends Component {
     render() {
         return (
             <div>
-                <HeaderComponentVentanaSiguiente></HeaderComponentVentanaSiguiente>
+                <HeaderComponentListaGrasa></HeaderComponentListaGrasa>
                 <div class="f">
                     <div class="container-excel">
                         <h1>

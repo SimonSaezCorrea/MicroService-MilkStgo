@@ -29,6 +29,7 @@ public class GrasaSolidoTotalesService {
 
     @Generated
     public void leerArchivoGrasaSolido(String direccion){
+        grasaSolidoTotalRepository.deleteAll();
         for(String[] listaDatos:archivosService.leerCSV(direccion)){
             GrasaSolidoTotalEntity grasaSolidoTotalesEntity = new GrasaSolidoTotalEntity(listaDatos[0],listaDatos[1],listaDatos[2]);
             guardarGrasaSolidoTotal(grasaSolidoTotalesEntity);

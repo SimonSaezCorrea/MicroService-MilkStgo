@@ -33,6 +33,7 @@ public class AcopioLecheService {
 
     @Generated
     public void leerArchivoAcopio(String direccion){
+        acopioLecheRepository.deleteAll();
         for(String[] listaDatos:archivosService.leerCSV(direccion)){
             AcopioLecheEntity acopioLeche = new AcopioLecheEntity(listaDatos[0], listaDatos[1], listaDatos[2], listaDatos[3]);
             guardarAcopioLeche(acopioLeche);
