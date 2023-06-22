@@ -1,9 +1,7 @@
 import React, { useState, useEffect } from "react";
 import {useNavigate} from "react-router-dom"
-import "../styles/listas.css";
 import PlanillaDePagoTodoUsuarioService from "../services/PlanillaDePagoTodoUsuarioService";
 import HeaderComponentVentanaSiguiente from "./Headers/HeaderComponentVentanaSiguiente";
-import styled from "styled-components";
 import swal from 'sweetalert';
 
 export default function PlanillaDePagoTodoUsuarioComponent(props) {
@@ -15,18 +13,18 @@ export default function PlanillaDePagoTodoUsuarioComponent(props) {
     const [input, setInput] = useState(initialState);
     useEffect(() => {
         PlanillaDePagoTodoUsuarioService.getPlanillaDePagoTodoUsuario()
-          .then((res) => {
+          .then((res) => { 
             setInput({ ...input, listPlanillaDePagoTodoUsuario: res.data }); // Actualizar el estado correctamente
           });
     }, []);
 
     const calcular = event => {
         event.preventDefault();
+        swal("Cálculo hecho correctamente!", {icon: "success", timer: "3000"});
         PlanillaDePagoTodoUsuarioService.createPlanillaDePagoTodoUsuario(input.proveedor_id)
         .then((res) => {
             }
           );
-        swal("Cálculo hecho correctamente!", {icon: "success", timer: "3000"});
     }
     const changeProveedorId = event => {
         setInput({ ...input, proveedor_id: event.target.value})
@@ -39,14 +37,14 @@ export default function PlanillaDePagoTodoUsuarioComponent(props) {
         return (
             <div>
                 <HeaderComponentVentanaSiguiente></HeaderComponentVentanaSiguiente>
-                    <div align="center" class="container my-2">
+                    <div align="center" class="container-2">
                         <h1>
                             <b>Planillas proveedores</b>
                         </h1>
                         <form action={calcular} method="POST">
-                            <input type="text" id="proveedor_id" name="proveedor_id" placeholder="Código proveedor"
+                            <input class="input-plan" type="text" id="proveedor_id" name="proveedor_id" placeholder="Código proveedor"
                                 value={input.proveedor_id} onChange={changeProveedorId}/>
-                            <input id="submit" type="submit" value="Calcular" />
+                            <input class="input-plan-boton" id="submit" type="submit" value="Calcular" />
                         </form>
                         <table border="1" class="content-table">
                             <thead>
@@ -64,7 +62,7 @@ export default function PlanillaDePagoTodoUsuarioComponent(props) {
                                         <td> {planillaDePago.nombreProveedor} </td>
                                         <td> {planillaDePago.fecha} </td>
                                         <td>
-                                            <button className="btn btn-info" onClick={()=>datoUsuario(planillaDePago.proveedor_id)}>Quincena</button>
+                                            <button className="input-plan-boton" onClick={()=>datoUsuario(planillaDePago.proveedor_id)}>Quincena</button>
                                         </td>
                                     </tr>
                                 ))}

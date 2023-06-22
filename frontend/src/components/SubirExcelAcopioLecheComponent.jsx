@@ -6,7 +6,6 @@ import Col from "react-bootstrap/Col";
 import HeaderComponentVentanaSiguiente from "./Headers/HeaderComponentVentanaSiguiente";
 import SubirExcelLecheService from "../services/SubirExcelLecheService";
 import swal from "sweetalert";
-import "../styles/subir_excel.css"
 
 class SubirExcelAcopioLecheComponent extends Component {
     constructor(props) {
@@ -44,20 +43,22 @@ class SubirExcelAcopioLecheComponent extends Component {
             <div>
                 <HeaderComponentVentanaSiguiente></HeaderComponentVentanaSiguiente>
                 <div class="f">
-                    <div class="container">
+                    <div class="container-excel">
                         <h1>
                             <b>Cargar el archivo de datos de Acopio de Leche</b>
                         </h1>
-                        <Row className="mt-4">
-                            <Col col="12">
-                                <Form.Group className="mb-3" controlId="formFileLg">
-                                    <Form.Control type="file" size="lg" onChange={this.onFileChange} />
-                                </Form.Group>
-                                <Button varian="primary" onClick={this.onFileUpload}>
-                                    Cargar el archivo a la Base de Datos
-                                </Button>
-                            </Col>
-                        </Row>
+                        <div class="container-padding">
+                            <Row className="mt-4">
+                                <Col col="12">
+                                    <Form.Group class="" controlId="formFileLg">
+                                        <Form.Control type="file" size="lg" onChange={this.onFileChange} />
+                                    </Form.Group>
+                                    <Button className="boton-excel" onClick={this.onFileUpload}>
+                                        Cargar el archivo a la Base de Datos
+                                    </Button>
+                                </Col>
+                            </Row>
+                        </div>
                     </div>
                 </div>
                 <br />

@@ -1,6 +1,10 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom';
 import '../styles/main.css'
+import '../styles/listas.css'
+import '../styles/subir_excel.css'
+import '../styles/navbar.css'
+import '../styles/agregar.css'
 import Excel from "../images/excel.png"
 import CajaDeLeche from "../images/caja-de-leche.png"
 import GrupoDeUsuarios from "../images/grupo-de-usuarios.png"

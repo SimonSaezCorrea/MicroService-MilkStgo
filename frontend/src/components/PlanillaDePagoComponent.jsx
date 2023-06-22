@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import "../styles/listas.css";
 import PlanillaDePagoService from "../services/PlanillaDePagoService";
 import HeaderComponentPlanillaUsuario from "./Headers/HeaderComponentPlanillaUsuario";
 

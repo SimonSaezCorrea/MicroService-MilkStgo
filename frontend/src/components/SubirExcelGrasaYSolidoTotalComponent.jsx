@@ -6,7 +6,6 @@ import Col from "react-bootstrap/Col";
 import HeaderComponentVentanaSiguiente from "./Headers/HeaderComponentVentanaSiguiente";
 import SubirExcelGrasaYLecheService from "../services/SubirExcelGrasaYLecheService";
 import swal from "sweetalert";
-import "../styles/subir_excel.css"
 
 class SubirExcelGrasaYSolidoTotalComponent extends Component {
     constructor(props) {
@@ -44,7 +43,7 @@ class SubirExcelGrasaYSolidoTotalComponent extends Component {
             <div>
                 <HeaderComponentVentanaSiguiente></HeaderComponentVentanaSiguiente>
                 <div class="f">
-                    <div class="container">
+                    <div class="container-excel">
                         <h1>
                             <b>Cargar el archivo de datos de Grasa Y Solidos Totales</b>
                         </h1>

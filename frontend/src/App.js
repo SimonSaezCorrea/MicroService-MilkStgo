@@ -9,6 +9,7 @@ import SubirExcelGrasaYSolidoTotalComponent from "./components/SubirExcelGrasaYS
 import ListadoGrasaYSolidosTotalesComponent from "./components/ListadoGrasaYSolidosTotalesComponent";
 import PlanillaDePagoTodoUsuarioComponent from "./components/PlanillaDePagoTodoUsuarioComponent";
 import PlanillaDePagoComponent from "./components/PlanillaDePagoComponent";
+import AgregarProveedor from "./components/AgregarProveedor";
 
 function App() {
     return (
@@ -16,6 +17,7 @@ function App() {
             <Router>
                   <Routes>
                       <Route path="/" element={<MainComponent />} />
+                      <Route path="/agregar_proveedor" element={<AgregarProveedor />} />
                       <Route path="/lista_proveedores" element={<ListadoProveedores />} />
                       <Route path="/lista_acopio_leche" element={<ListadoAcopioLecheComponent />} />
                       <Route path="/lista_grasa_y_solido" element={<ListadoGrasaYSolidosTotalesComponent />} />

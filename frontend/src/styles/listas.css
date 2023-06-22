@@ -1,4 +1,14 @@
-*{
+.container-2{
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1000px;
+    margin: auto;
+    padding: 50px;
+}
+.input-plan{
+    max-width: 200px;;
+}
+.general{
     font-family: sans-serif;
     box-sizing: border-box;
     margin: 0;
@@ -35,8 +45,18 @@
     font-weight: bold;
     color: #009879;
 }
-.header .btn button:hover{
-    background-color: #e2f1f8;
-    color: #ffbc0e;
+.input-plan-boton{
+    margin-left: 20px;
+    font-weight: 700;
+    color: #133646;
+    padding: 9px 25px;
+    background: #aeefff;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease 0s;
+}
+.input-plan-boton:hover{
+    background-color: #00ff0d;
     transform: scale(1.1);
 }

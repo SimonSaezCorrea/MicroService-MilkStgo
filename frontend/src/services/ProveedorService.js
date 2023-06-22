@@ -11,10 +11,6 @@ class ProveedorService {
     createProveedores(proveedor){
         return axios.post(PROVEEDOR_API_URL, proveedor);
     }
-
-    getProveedorById(proveedorId){
-        return axios.get(PROVEEDOR_API_URL + '/' + proveedorId);
-    }
 }
 
 export default new ProveedorService()

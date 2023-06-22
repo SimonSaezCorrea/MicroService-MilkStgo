@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import '../styles/listas.css'
 import GrasaYSolidosTotalesService from '../services/GrasaYSolidosTotalesService'
 import HeaderComponentVentanaSiguiente from './Headers/HeaderComponentVentanaSiguiente'
 
@@ -19,9 +18,9 @@ class ListadoGrasaYSolidosTotalesComponent extends Component {
 
     render(){
         return(
-            <div>
+            <div class="general">
                 <HeaderComponentVentanaSiguiente></HeaderComponentVentanaSiguiente>
-                <div align="center" class="container my-2">
+                <div align="center" class="container-2">
                     <h1><b> Listado de Grasa Y Solidos Totales</b></h1>
                     <table border="1" class="content-table">
                         <thead>
