@@ -82,6 +82,7 @@
 				</configuration>
 			</plugin>
 		</plugins>
+		<finalName>MicroService-MilkStgo-GrasaYSolidosTotales</finalName>
 	</build>
 
 </project>

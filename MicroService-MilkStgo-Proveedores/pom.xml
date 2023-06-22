@@ -82,6 +82,7 @@
 				</configuration>
 			</plugin>
 		</plugins>
+		<finalName>MicroService-MilkStgo-Proveedores</finalName>
 	</build>
 
 </project>
