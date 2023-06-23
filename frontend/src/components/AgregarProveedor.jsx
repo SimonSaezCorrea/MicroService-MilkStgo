@@ -42,7 +42,7 @@ export default function AgregarProveedor(props){
             if(respuesta){
                 swal("Proveedor registrado correctamente!", {icon: "success", timer: "3000"});
                 let proveedor = { proveedor_id: input.proveedor_id, 
-                    nombre: input.rut,
+                    nombre: input.nombre,
                     categoria: input.categoria,
                     afecto_retencion: input.afecto_retencion};
                 console.log(input.proveedor_id)

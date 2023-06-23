@@ -16,7 +16,7 @@ import java.util.Objects;
 
 @RestController
 @RequestMapping("/grasa_solidos_totales")
-@CrossOrigin(origins = "http://localhost:3000")
+@CrossOrigin
 public class GrasaSolidoTotalController {
 
     @Autowired

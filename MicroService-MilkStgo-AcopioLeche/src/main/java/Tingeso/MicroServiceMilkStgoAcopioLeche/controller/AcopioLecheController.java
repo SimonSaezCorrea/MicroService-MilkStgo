@@ -16,7 +16,7 @@ import java.util.Objects;
 
 @RestController
 @RequestMapping("/acopio_leche")
-@CrossOrigin(origins = "http://localhost:3000")
+@CrossOrigin
 public class AcopioLecheController {
 
     @Autowired

@@ -15,7 +15,7 @@ import java.util.List;
 
 @Controller
 @RequestMapping("/pago_planilla")
-@CrossOrigin(origins = "http://localhost:3000")
+@CrossOrigin
 public class QuincenasController {
 
     @Autowired

@@ -1,5 +1,6 @@
 package Tingeso.MicroServiceMilkStgoProveedores.controller;
 
+import org.springframework.http.HttpHeaders;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import Tingeso.MicroServiceMilkStgoProveedores.entity.ProveedorEntity;
 import Tingeso.MicroServiceMilkStgoProveedores.service.ProveedorService;
@@ -11,12 +12,11 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/proveedor")
-@CrossOrigin(origins = "http://localhost:3000")
 public class ProveedorController {
 
     @Autowired
     private ProveedorService proveedorService;
-
+    @CrossOrigin("*")
     @GetMapping()
     public ResponseEntity<List<ProveedorEntity>> listar() {
         List<ProveedorEntity> proveedores = proveedorService.obtenerProveedores();
@@ -24,7 +24,7 @@ public class ProveedorController {
             return ResponseEntity.noContent().build();
         return ResponseEntity.ok(proveedores);
     }
-
+    @CrossOrigin("*")
     @GetMapping("/{id}")
     public ResponseEntity<ProveedorEntity> proveedor(@PathVariable("id") String id){
         ProveedorEntity proveedor = proveedorService.encontrarPorCodigo(id);
@@ -32,9 +32,10 @@ public class ProveedorController {
             return ResponseEntity.notFound().build();
         return ResponseEntity.ok(proveedor);
     }
+    @CrossOrigin("*")
     @PostMapping()
     public ResponseEntity<ProveedorEntity> nuevoProveedor(@RequestBody ProveedorEntity proveedor){
-        ProveedorEntity proveedorNew = proveedorService.guardarProveedor(proveedor);
-        return ResponseEntity.ok(proveedorNew);
+        proveedorService.guardarProveedor(proveedor);
+        return ResponseEntity.ok(proveedor);
     }
 }

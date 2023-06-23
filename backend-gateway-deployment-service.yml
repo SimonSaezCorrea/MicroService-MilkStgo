@@ -1,0 +1,36 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: backend-gateway-deployment
+  labels:
+    app: backend-gateway-deployment
+spec:
+  selector:
+    matchLabels:
+      app: backend-gateway-deployment
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        app: backend-gateway-deployment
+    spec:
+      containers:
+        - name: backend-gateway
+          image: simonsaez/minikube-microservice-milkstgo-gateway
+          ports:
+            - containerPort: 8080
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: backend-gateway-service
+  labels:
+    app: backend-gateway-service
+spec:
+  selector:
+    app: backend-gateway-deployment
+  ports:
+    - protocol: TCP
+      port: 8080
+      targetPort: 8080
+  type: LoadBalancer
