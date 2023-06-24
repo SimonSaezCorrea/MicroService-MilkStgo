@@ -2,6 +2,14 @@ server:
   port: 8081
 spring:
   cloud:
+    gateway:
+      globalcors:
+        corsConfigurations:
+          '[/**]':
+            allowedOrigins: "http://localhost:3000"
+            allowedMethods:
+              - GET
+              - POST
     config:
       server:
         git:

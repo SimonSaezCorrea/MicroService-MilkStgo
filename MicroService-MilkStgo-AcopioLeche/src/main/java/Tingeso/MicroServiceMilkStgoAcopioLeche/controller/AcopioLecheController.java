@@ -16,7 +16,6 @@ import java.util.Objects;
 
 @RestController
 @RequestMapping("/acopio_leche")
-@CrossOrigin
 public class AcopioLecheController {
 
     @Autowired

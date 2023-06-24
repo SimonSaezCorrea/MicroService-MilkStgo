@@ -86,7 +86,7 @@ export default function AgregarProveedor(props){
                             <Form.Control type="text" name="afecto_retencion" placeholder="Sí / No"/>
                         </Form.Group>
                     </Form>
-                    <Button className="boton" onClick={ingresarProveedor}>Registrar Justificativo</Button>
+                    <Button className="boton" onClick={ingresarProveedor}>Registrar Proveedor</Button>
                 </div>
             </div>
         )

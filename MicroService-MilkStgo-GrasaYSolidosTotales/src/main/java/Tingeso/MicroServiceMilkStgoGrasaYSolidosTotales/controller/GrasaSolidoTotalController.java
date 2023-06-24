@@ -16,7 +16,6 @@ import java.util.Objects;
 
 @RestController
 @RequestMapping("/grasa_solidos_totales")
-@CrossOrigin
 public class GrasaSolidoTotalController {
 
     @Autowired

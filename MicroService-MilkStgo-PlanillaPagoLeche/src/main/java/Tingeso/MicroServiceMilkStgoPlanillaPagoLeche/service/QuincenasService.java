@@ -45,31 +45,27 @@ public class QuincenasService {
                 null,
                 new ParameterizedTypeReference<List<ProveedorEntity>>() {}
         );
-        List<ProveedorEntity> proveedores = response.getBody();
-        return proveedores;
-    }
-    public List<ProveedorEntity> getProveedor(String proveedor_id){
-        ResponseEntity<List<ProveedorEntity>> response = restTemplate.exchange(
-                "http://MicroService-MilkStgo-Proveedores/proveedor/" + proveedor_id,
-                HttpMethod.GET,
-                null,
-                new ParameterizedTypeReference<List<ProveedorEntity>>() {}
-        );
-        List<ProveedorEntity> proveedor = response.getBody();
-        System.out.println(proveedor.get(0));
-        return proveedor;
+        return response.getBody();
     }
 
     public List<AcopioLecheEntity> getAcopioLeche(String proveedor_id){
-
-        List<AcopioLecheEntity> acopiosLeches = restTemplate.getForObject("http://MicroService-MilkStgo-AcopioLeche/acopio_leche/proveedores" + proveedor_id, List.class);
-        return acopiosLeches;
+        ResponseEntity<List<AcopioLecheEntity>> response = restTemplate.exchange(
+                "http://MicroService-MilkStgo-AcopioLeche/acopio_leche/proveedores/" + proveedor_id,
+                HttpMethod.GET,
+                null,
+                new ParameterizedTypeReference<List<AcopioLecheEntity>>() {}
+        );
+        return response.getBody();
     }
 
-    public List<GrasaSolidoTotalEntity> getGrasaSolidoTotal(String proveedor_id){
-
-        List<GrasaSolidoTotalEntity> grasaSolidoTotalEntities = restTemplate.getForObject("http://MicroService-MilkStgo-AcopioLeche/acopio_leche/proveedor" + proveedor_id, List.class);
-        return grasaSolidoTotalEntities;
+    public List<GrasaSolidoTotalEntity> getGrasaSolidoTotal(){
+        ResponseEntity<List<GrasaSolidoTotalEntity>> response = restTemplate.exchange(
+                "http://MicroService-MilkStgo-GrasaYSolidosTotales/grasa_solidos_totales",
+                HttpMethod.GET,
+                null,
+                new ParameterizedTypeReference<List<GrasaSolidoTotalEntity>>() {}
+        );
+        return response.getBody();
     }
 
     //----------------------------------------------------------------------------------------------------

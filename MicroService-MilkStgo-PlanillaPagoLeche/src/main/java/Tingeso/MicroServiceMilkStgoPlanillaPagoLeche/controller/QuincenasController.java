@@ -1,7 +1,6 @@
 package Tingeso.MicroServiceMilkStgoPlanillaPagoLeche.controller;
 
 import Tingeso.MicroServiceMilkStgoPlanillaPagoLeche.entity.QuincenasEntity;
-import Tingeso.MicroServiceMilkStgoPlanillaPagoLeche.repository.QuincenasRepository;
 import Tingeso.MicroServiceMilkStgoPlanillaPagoLeche.service.QuincenasService;
 import Tingeso.MicroServiceMilkStgoPlanillaPagoLeche.model.*;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,7 +14,6 @@ import java.util.List;
 
 @Controller
 @RequestMapping("/pago_planilla")
-@CrossOrigin
 public class QuincenasController {
 
     @Autowired
@@ -43,6 +41,14 @@ public class QuincenasController {
 
     @PostMapping()
     public ResponseEntity<QuincenasEntity> nuevaQuincena(@RequestBody String proveedor_id){
+        int i = 0;
+        StringBuilder proveedor_id_new= new StringBuilder();
+        while (i < proveedor_id.length() - 1){
+            proveedor_id_new.append(proveedor_id.charAt(i));
+            i++;
+        }
+        proveedor_id = String.valueOf(proveedor_id_new);
+
         List<ProveedorEntity> proveedores = quincenasService.getProveedores();
         ProveedorEntity proveedor = null;
         for(ProveedorEntity p:proveedores){
@@ -52,11 +58,24 @@ public class QuincenasController {
             }
         }
         if(proveedor!=null){
-            List<AcopioLecheEntity> acopioLecheEntityList = quincenasService.getAcopioLeche(proveedor_id);
+            List<AcopioLecheEntity> acopioLecheEntities = quincenasService.getAcopioLeche(proveedor_id);
+            List<AcopioLecheEntity> acopioLecheEntityList = new ArrayList<>();
+            for(AcopioLecheEntity al:acopioLecheEntities){
+                if(al.getProveedor_id().equals(proveedor_id)){
+                    acopioLecheEntityList.add(al);
+                }
+            }
             if(acopioLecheEntityList.isEmpty()){
                 ResponseEntity.ok(null);
             }else {
-                GrasaSolidoTotalEntity grasaSolidoTotalEntity = quincenasService.getGrasaSolidoTotal(proveedor_id).get(0);
+                List<GrasaSolidoTotalEntity> grasaSolidoTotal = quincenasService.getGrasaSolidoTotal();
+                GrasaSolidoTotalEntity grasaSolidoTotalEntity = null;
+                for(GrasaSolidoTotalEntity gst:grasaSolidoTotal){
+                    if(gst.getProveedor_id().equals(proveedor_id)){
+                        grasaSolidoTotalEntity = gst;
+                        break;
+                    }
+                }
                 QuincenasEntity quincenasEntity = new QuincenasEntity();
                 Calendar fecha = Calendar.getInstance();
                 String fechaUnida = fecha.get(Calendar.YEAR) + "/" + fecha.get(Calendar.MONTH) + "/" + fecha.get(Calendar.DATE);
