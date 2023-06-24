@@ -17,3 +17,10 @@ spring:
     url: jdbc:postgresql://localhost:5432/MilkStgo_MicroService_GrasaYSolidoTotales
     username: postgres
     password: Simon_789
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include:
+          - '*'

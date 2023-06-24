@@ -18,3 +18,10 @@ spring:
           search-paths: config-data
   application:
     name: Config
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include:
+          - '*'
