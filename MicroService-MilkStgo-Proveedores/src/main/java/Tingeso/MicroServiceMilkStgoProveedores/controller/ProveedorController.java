@@ -12,11 +12,12 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/proveedor")
+@CrossOrigin
 public class ProveedorController {
 
     @Autowired
     private ProveedorService proveedorService;
-    @CrossOrigin("*")
+
     @GetMapping()
     public ResponseEntity<List<ProveedorEntity>> listar() {
         List<ProveedorEntity> proveedores = proveedorService.obtenerProveedores();
@@ -24,7 +25,7 @@ public class ProveedorController {
             return ResponseEntity.noContent().build();
         return ResponseEntity.ok(proveedores);
     }
-    @CrossOrigin("*")
+
     @GetMapping("/{id}")
     public ResponseEntity<ProveedorEntity> proveedor(@PathVariable("id") String id){
         ProveedorEntity proveedor = proveedorService.encontrarPorCodigo(id);
@@ -32,7 +33,7 @@ public class ProveedorController {
             return ResponseEntity.notFound().build();
         return ResponseEntity.ok(proveedor);
     }
-    @CrossOrigin("*")
+
     @PostMapping()
     public ResponseEntity<ProveedorEntity> nuevoProveedor(@RequestBody ProveedorEntity proveedor){
         proveedorService.guardarProveedor(proveedor);
