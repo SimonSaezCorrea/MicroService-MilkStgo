@@ -1,0 +1,88 @@
+D:
+cd Simon/progra/IdeaProjects/MicroService-MilkStgo/Config
+mvn clean
+mvn package
+docker build -t simonsaez/minikube-microservice-milkstgo-config .
+docker push simonsaez/minikube-microservice-milkstgo-config
+cd ../Eureka
+mvn clean
+mvn package
+docker build -t simonsaez/minikube-microservice-milkstgo-eureka .
+docker push simonsaez/minikube-microservice-milkstgo-eureka
+cd ../Gateway
+mvn clean
+mvn package
+docker build -t simonsaez/minikube-microservice-milkstgo-gateway .
+docker push simonsaez/minikube-microservice-milkstgo-gateway
+cd ../MicroService-MilkStgo-AcopioLeche
+mvn clean
+mvn package
+docker build -t simonsaez/minikube-microservice-milkstgo-acopioleche .
+docker push simonsaez/minikube-microservice-milkstgo-acopioleche
+cd ../MicroService-MilkStgo-GrasaYSolidosTotales
+mvn clean
+mvn package
+docker build -t simonsaez/minikube-microservice-milkstgo-grasaysolidostotales .
+docker push simonsaez/minikube-microservice-milkstgo-grasaysolidostotales 
+cd ../MicroService-MilkStgo-PlanillaPagoLeche
+mvn clean
+mvn package
+docker build -t simonsaez/minikube-microservice-milkstgo-planilladepago .
+docker push simonsaez/minikube-microservice-milkstgo-planilladepago
+cd ../MicroService-MilkStgo-Proveedores
+mvn clean
+mvn package
+docker build -t simonsaez/minikube-microservice-milkstgo-proveedores .
+docker push simonsaez/minikube-microservice-milkstgo-proveedores
+cd ../frontend
+docker build -t simonsaez/minikube-microservice-milkstgo-frontend .
+docker push simonsaez/minikube-microservice-milkstgo-frontend
+cd ../
+
+minikube start
+minikube status
+
+kubectl apply -f postgres-secrets.yaml
+kubectl apply -f posTgres-dp-sv-cm-pv-pvc.yml
+
+kubectl apply -f frontend-deployment-service.yml
+
+kubectl apply -f backend-config-deployment-service.yml
+kubectl apply -f backend-eureka-deployment-service.yml
+kubectl apply -f backend-acopioleche-deployment-service.yml
+kubectl apply -f backend-grasaysolidostotales-deployment-service.yml
+kubectl apply -f backend-planilladepago-deployment-service.yml
+kubectl apply -f backend-proveedor-deployment-service.yml
+kubectl apply -f backend-gateway-deployment-service.yml
+
+kubectl delete deployments backend-config-deployment
+kubectl delete services backend-config-service
+
+kubectl delete deployments backend-eureka-deployment
+kubectl delete services backend-eureka-service
+
+kubectl delete deployments backend-gateway-deployment
+kubectl delete services backend-gateway-service
+
+kubectl delete deployments backend-proveedor-deployment
+kubectl delete services backend-proveedor-service
+
+kubectl delete deployments backend-grasaysolidostotales-deployment
+kubectl delete services backend-grasaysolidostotales-service
+
+kubectl delete deployments backend-planilladepago-deployment
+kubectl delete services backend-planilladepago-service
+
+kubectl delete deployments backend-acopioleche-deployment
+kubectl delete services backend-acopioleche-service
+
+
+
+kubectl get pods
+kubectl logs <Name pods>
+
+kubectl get services
+kubectl get deployments
+
+minikube service frontend-service
+minikube dashboard

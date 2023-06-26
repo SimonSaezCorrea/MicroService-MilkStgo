@@ -20,8 +20,26 @@ spec:
           ports:
             - containerPort: 8084
           env:
-            - name: DATABASE-URL
-              value: postgresql://postgres:Simon_789@localhost:5432/MilkStgo_MicroService_AcopioLeche
+            - name: DB-HOST
+              valueFrom:
+                configMapKeyRef:
+                  name: postgres-db
+                  key: HOST
+            - name: DB-NAME
+              valueFrom:
+                configMapKeyRef:
+                  name: postgres-db
+                  key: POSTGRES_DB_ACOPIOLECHE
+            - name: DB_USERNAME
+              valueFrom:
+                secretKeyRef:
+                  name: postgres_credentials
+                  key: username
+            - name: DB_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: postgres_credentials
+                  key: password
 ---
 apiVersion: v1
 kind: Service

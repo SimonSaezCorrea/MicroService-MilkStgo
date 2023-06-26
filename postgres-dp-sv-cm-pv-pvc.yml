@@ -1,0 +1,125 @@
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: postgres-persistent-volume
+  labels:
+    type: local
+    app: postgres
+spec:
+  storageClassName: manual
+  capacity:
+    storage: 8Gi
+  accessModes:
+    - ReadWriteMany
+  hostPath:
+    path: "/data/db"
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: postgres-pv-claim
+  labels:
+    app: postgres
+    tier: database
+spec:
+  accessModes:
+    - ReadWriteOnce
+  storageClassName: manual
+  resources:
+    requests:
+      storage: 8Gi
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: postgres-db
+  labels:
+    app: postgres
+data:
+  HOST: postgres
+  #base de dato Acopio
+  POSTGRES_DB_ACOPIOLECHE: MilkStgo_MicroService_AcopioLeche
+  #base de dato Proveedor
+  POSTGRES_DB_PROVEEDOR: MilkStgo_MicroService_Proveedores
+  #base de dato Grasa y Solidos Totales
+  POSTGRES_DB_GRASAYSOLIDOSTOTALES: MilkStgo_MicroService_GrasaYSolidoTotales
+  #base de dato Planilla de Pago
+  POSTGRES_DB_PLANILLADEPAGO: MilkStgo_MicroService_PlanillaPagoLeche
+  #POSTGRES_USER: postgres
+  #POSTGRES_PASSWORD: Simon_789
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: postgres
+  labels:
+    app: postgres
+spec:
+  selector:
+    matchLabels:
+      app: postgres
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      labels:
+        app: postgres
+    spec:
+      containers:
+        - name: postgres
+          image: postgres:latest
+          ports:
+            - containerPort: 5432
+              name: postgres
+          env:
+            - name: POSTGRES_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: postgres-credentials
+                  key: POSTGRES_PASSWORD
+            - name: POSTGRES_USER
+              valueFrom:
+                secretKeyRef:
+                  name: postgres-credentials
+                  key: POSTGRES_USER
+            - name: POSTGRES_DATABASE_ACOPIOLECHE
+              valueFrom:
+                configMapKeyRef:
+                  name: postgres-db
+                  key: POSTGRES_DB_ACOPIOLECHE
+            - name: POSTGRES_DATABASE_PROVEEDOR
+              valueFrom:
+                configMapKeyRef:
+                  name: postgres-db
+                  key: POSTGRES_DB_PROVEEDOR
+            - name: POSTGRES_DATABASE_GRASAYSOLIDOSTOTALES
+              valueFrom:
+                configMapKeyRef:
+                  name: postgres-db
+                  key: POSTGRES_DB_GRASAYSOLIDOSTOTALES
+            - name: POSTGRES_DATABASE_PLANILLADEPAGO
+              valueFrom:
+                configMapKeyRef:
+                  name: postgres-db
+                  key: POSTGRES_DB_PLANILLADEPAGO
+          volumeMounts:
+            - mountPath: /var/lib/postgres/data
+              name: db-data
+      volumes:
+        - name: db-data
+          persistentVolumeClaim:
+            claimName: postgres-pv-claim
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: postgres
+  labels:
+    app: postgres
+spec:
+  ports:
+    - port: 5432
+      targetPort: 5432
+  selector:
+    app: postgres
+  type: NodePort

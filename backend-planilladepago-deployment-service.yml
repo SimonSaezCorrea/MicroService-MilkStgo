@@ -20,8 +20,26 @@ spec:
           ports:
             - containerPort: 8082
           env:
-            - name: DATABASE-URL
-              value: postgresql://postgres:Simon_789@localhost:5432/MilkStgo_MicroService_PlanillaPagoLeche
+            - name: DB-HOST
+              valueFrom:
+                configMapKeyRef:
+                  name: postgres-db
+                  key: HOST
+            - name: DB-NAME
+              valueFrom:
+                configMapKeyRef:
+                  name: postgres-db
+                  key: POSTGRES_DB_PLANILLADEPAGO
+            - name: DB_USERNAME
+              valueFrom:
+                secretKeyRef:
+                  name: postgres_credentials
+                  key: username
+            - name: DB_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: postgres_credentials
+                  key: password
 ---
 apiVersion: v1
 kind: Service
