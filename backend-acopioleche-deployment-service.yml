@@ -16,10 +16,16 @@ spec:
     spec:
       containers:
         - name: backend-acopioleche
-          image: simonsaez/minikube-microservice-milkstgo-acopioleche
+          image: simonsaez/minikube-microservice-milkstgo-acopioleche:latest
           ports:
             - containerPort: 8084
           env:
+            - name: SPRING_CLOUD_CONFIG_URI
+              value: http://backend-config-service:8081
+            - name: EUREKA_CLIENT_SERVICEURL_DEFAULTZONE
+              value: http://backend-eureka-service:8761
+            - name: eureka.instance.preferIpAddress
+              value: "true"
             - name: DB-HOST
               valueFrom:
                 configMapKeyRef:

@@ -19,6 +19,13 @@ spec:
           image: simonsaez/minikube-microservice-milkstgo-gateway
           ports:
             - containerPort: 8080
+          env:
+            - name: SPRING_CLOUD_CONFIG_URI
+              value: http://config-service:8081
+            - name: EUREKA_CLIENT_SERVICEURL_DEFAULTZONE
+              value: http://eureka-service:8761
+            - name: eureka.instance.preferIpAddress
+              value: "true"
 ---
 apiVersion: v1
 kind: Service

@@ -1,40 +1,48 @@
 D:
-cd Simon/progra/IdeaProjects/MicroService-MilkStgo/Config
+cd Simon/progra/IdeaProjects/MicroService-MilkStgo/
+cd Config
 mvn clean
 mvn package
 docker build -t simonsaez/minikube-microservice-milkstgo-config .
 docker push simonsaez/minikube-microservice-milkstgo-config
-cd ../Eureka
+cd ../
+cd Eureka
 mvn clean
 mvn package
 docker build -t simonsaez/minikube-microservice-milkstgo-eureka .
 docker push simonsaez/minikube-microservice-milkstgo-eureka
-cd ../Gateway
+cd ../
+cd Gateway
 mvn clean
 mvn package
 docker build -t simonsaez/minikube-microservice-milkstgo-gateway .
 docker push simonsaez/minikube-microservice-milkstgo-gateway
-cd ../MicroService-MilkStgo-AcopioLeche
+cd ../
+cd MicroService-MilkStgo-AcopioLeche
 mvn clean
 mvn package
 docker build -t simonsaez/minikube-microservice-milkstgo-acopioleche .
 docker push simonsaez/minikube-microservice-milkstgo-acopioleche
-cd ../MicroService-MilkStgo-GrasaYSolidosTotales
+cd ../
+cd MicroService-MilkStgo-GrasaYSolidosTotales
 mvn clean
 mvn package
 docker build -t simonsaez/minikube-microservice-milkstgo-grasaysolidostotales .
 docker push simonsaez/minikube-microservice-milkstgo-grasaysolidostotales 
-cd ../MicroService-MilkStgo-PlanillaPagoLeche
+cd ../
+cd MicroService-MilkStgo-PlanillaPagoLeche
 mvn clean
 mvn package
 docker build -t simonsaez/minikube-microservice-milkstgo-planilladepago .
 docker push simonsaez/minikube-microservice-milkstgo-planilladepago
-cd ../MicroService-MilkStgo-Proveedores
+cd ../
+cd MicroService-MilkStgo-Proveedores
 mvn clean
 mvn package
 docker build -t simonsaez/minikube-microservice-milkstgo-proveedores .
 docker push simonsaez/minikube-microservice-milkstgo-proveedores
-cd ../frontend
+cd ../
+cd frontend
 docker build -t simonsaez/minikube-microservice-milkstgo-frontend .
 docker push simonsaez/minikube-microservice-milkstgo-frontend
 cd ../
@@ -79,10 +87,10 @@ kubectl delete services backend-acopioleche-service
 
 
 kubectl get pods
-kubectl logs <Name pods>
-
 kubectl get services
 kubectl get deployments
+
+kubectl logs <Name pods>
 
 minikube service frontend-service
 minikube dashboard

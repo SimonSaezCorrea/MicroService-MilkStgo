@@ -2,14 +2,6 @@ server:
   port: 8081
 spring:
   cloud:
-    gateway:
-      globalcors:
-        corsConfigurations:
-          '[/**]':
-            allowedOrigins: "http://localhost:3000"
-            allowedMethods:
-              - GET
-              - POST
     config:
       server:
         git:
@@ -18,10 +10,3 @@ spring:
           search-paths: config-data
   application:
     name: Config
-
-management:
-  endpoints:
-    web:
-      exposure:
-        include:
-          - '*'
