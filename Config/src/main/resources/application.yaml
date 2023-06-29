@@ -1,6 +1,8 @@
 server:
   port: 8081
 spring:
+  application:
+    name: backend-config-service
   cloud:
     config:
       server:
@@ -8,5 +10,3 @@ spring:
           default-label: master
           uri: https://github.com/SimonSaezCorrea/MicroService-MilkStgo
           search-paths: config-data
-  application:
-    name: Config
