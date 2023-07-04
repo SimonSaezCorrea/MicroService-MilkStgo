@@ -8,17 +8,17 @@ spec:
   selector:
     matchLabels:
       app: backend-eureka-deployment
-  replicas: 2
+  replicas: 1
   template:
     metadata:
       labels:
         app: backend-eureka-deployment
     spec:
       containers:
-        - name: backend-eureka
-          image: simonsaez/minikube-microservice-milkstgo-eureka
+        - name: minikube-microservice-milkstgo-eureka
+          image: simonsaez/minikube-microservice-milkstgo-eureka:latest
           ports:
-            - containerPort: 8761
+            - containerPort: 8081
           env:
             - name: SPRING_CLOUD_CONFIG_URI
               value: http://backend-config-service:8081

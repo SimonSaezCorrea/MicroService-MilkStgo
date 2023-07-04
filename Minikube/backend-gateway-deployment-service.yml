@@ -8,7 +8,7 @@ spec:
   selector:
     matchLabels:
       app: backend-gateway-deployment
-  replicas: 2
+  replicas: 1
   template:
     metadata:
       labels:
@@ -18,12 +18,12 @@ spec:
         - name: backend-gateway
           image: simonsaez/minikube-microservice-milkstgo-gateway
           ports:
-            - containerPort: 8080
+            - containerPort: 8081
           env:
             - name: SPRING_CLOUD_CONFIG_URI
-              value: http://config-service:8081
+              value: http://backend-config-service:8081
             - name: EUREKA_CLIENT_SERVICEURL_DEFAULTZONE
-              value: http://eureka-service:8761
+              value: http://backend-eureka-service:8761
             - name: eureka.instance.preferIpAddress
               value: "true"
 ---

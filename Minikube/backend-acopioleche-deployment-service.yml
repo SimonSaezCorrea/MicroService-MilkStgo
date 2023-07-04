@@ -8,7 +8,7 @@ spec:
   selector:
     matchLabels:
       app: backend-acopioleche-deployment
-  replicas: 2
+  replicas: 1
   template:
     metadata:
       labels:
@@ -18,7 +18,7 @@ spec:
         - name: backend-acopioleche
           image: simonsaez/minikube-microservice-milkstgo-acopioleche:latest
           ports:
-            - containerPort: 8084
+            - containerPort: 8081
           env:
             - name: SPRING_CLOUD_CONFIG_URI
               value: http://backend-config-service:8081
@@ -26,26 +26,26 @@ spec:
               value: http://backend-eureka-service:8761
             - name: eureka.instance.preferIpAddress
               value: "true"
-            - name: DB-HOST
+            - name: POSTGRES_DB_HOST
               valueFrom:
                 configMapKeyRef:
-                  name: postgres-db
-                  key: HOST
-            - name: DB-NAME
+                  name: postgres-config-map
+                  key: POSTGRES_DB_HOST
+            - name: POSTGRES_DB_ACOPIOLECHE
               valueFrom:
                 configMapKeyRef:
-                  name: postgres-db
+                  name: postgres-config-map
                   key: POSTGRES_DB_ACOPIOLECHE
-            - name: DB_USERNAME
+            - name: POSTGRES_USER
               valueFrom:
                 secretKeyRef:
-                  name: postgres_credentials
-                  key: username
-            - name: DB_PASSWORD
+                  name: postgres-credentials
+                  key: POSTGRES_USER
+            - name: POSTGRES_PASSWORD
               valueFrom:
                 secretKeyRef:
-                  name: postgres_credentials
-                  key: password
+                  name: postgres-credentials
+                  key: POSTGRES_PASSWORD
 ---
 apiVersion: v1
 kind: Service

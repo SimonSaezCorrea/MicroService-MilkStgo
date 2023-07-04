@@ -8,15 +8,15 @@ spec:
   selector:
     matchLabels:
       app: backend-config-deployment
-  replicas: 2
+  replicas: 1
   template:
     metadata:
       labels:
         app: backend-config-deployment
     spec:
       containers:
-        - name: backend-config
-          image: simonsaez/minikube-microservice-milkstgo-config
+        - name: minikube-microservice-milkstgo-config
+          image: simonsaez/minikube-microservice-milkstgo-config:latest
           ports:
             - containerPort: 8081
 ---
