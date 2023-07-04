@@ -1,6 +1,6 @@
 package tingeso.backendgrasaysolidostotalesservice.repository;
 
-import Tingeso.MicroServiceMilkStgoGrasaYSolidosTotales.entity.GrasaSolidoTotalEntity;
+import tingeso.backendgrasaysolidostotalesservice.entity.GrasaSolidoTotalEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;

@@ -119,6 +119,8 @@ kubectl get all
 
 kubectl logs <Name pods>
 
+kubectl port-forward <nombre-pod> <puerto-local>:<puerto-contenedor>
+
 kubectl exec -it <Name pods postgres> bash
 psql -h postgres -U postgres
 

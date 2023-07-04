@@ -1,8 +1,8 @@
-package Tingeso.MicroServiceMilkStgoPlanillaPagoLeche.service;
+package tingeso.backendplanilladepagoservice.service;
 
-import Tingeso.MicroServiceMilkStgoPlanillaPagoLeche.entity.QuincenasEntity;
-import Tingeso.MicroServiceMilkStgoPlanillaPagoLeche.model.*;
-import Tingeso.MicroServiceMilkStgoPlanillaPagoLeche.repository.QuincenasRepository;
+import tingeso.backendplanilladepagoservice.entity.QuincenasEntity;
+import tingeso.backendplanilladepagoservice.model.*;
+import tingeso.backendplanilladepagoservice.repository.QuincenasRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpMethod;

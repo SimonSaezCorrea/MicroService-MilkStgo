@@ -1,7 +1,7 @@
 package tingeso.backendacopiolecheservice.service;
 
-import Tingeso.MicroServiceMilkStgoAcopioLeche.entity.AcopioLecheEntity;
-import Tingeso.MicroServiceMilkStgoAcopioLeche.repository.AcopioLecheRepository;
+import tingeso.backendacopiolecheservice.entity.AcopioLecheEntity;
+import tingeso.backendacopiolecheservice.repository.AcopioLecheRepository;
 import lombok.Generated;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

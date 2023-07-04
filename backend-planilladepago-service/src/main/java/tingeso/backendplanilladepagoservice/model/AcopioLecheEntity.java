@@ -1,4 +1,4 @@
-package Tingeso.MicroServiceMilkStgoPlanillaPagoLeche.model;
+package tingeso.backendplanilladepagoservice.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

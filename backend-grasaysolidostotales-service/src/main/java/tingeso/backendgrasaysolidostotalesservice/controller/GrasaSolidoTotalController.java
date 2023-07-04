@@ -1,8 +1,8 @@
 package tingeso.backendgrasaysolidostotalesservice.controller;
 
-import Tingeso.MicroServiceMilkStgoGrasaYSolidosTotales.entity.GrasaSolidoTotalEntity;
-import Tingeso.MicroServiceMilkStgoGrasaYSolidosTotales.service.ArchivosService;
-import Tingeso.MicroServiceMilkStgoGrasaYSolidosTotales.service.GrasaSolidoTotalesService;
+import tingeso.backendgrasaysolidostotalesservice.entity.GrasaSolidoTotalEntity;
+import tingeso.backendgrasaysolidostotalesservice.service.ArchivosService;
+import tingeso.backendgrasaysolidostotalesservice.service.GrasaSolidoTotalesService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

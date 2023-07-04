@@ -1,8 +1,8 @@
 package tingeso.backendacopiolecheservice.controller;
 
-import Tingeso.MicroServiceMilkStgoAcopioLeche.entity.AcopioLecheEntity;
-import Tingeso.MicroServiceMilkStgoAcopioLeche.service.AcopioLecheService;
-import Tingeso.MicroServiceMilkStgoAcopioLeche.service.ArchivosService;
+import tingeso.backendacopiolecheservice.entity.AcopioLecheEntity;
+import tingeso.backendacopiolecheservice.service.AcopioLecheService;
+import tingeso.backendacopiolecheservice.service.ArchivosService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

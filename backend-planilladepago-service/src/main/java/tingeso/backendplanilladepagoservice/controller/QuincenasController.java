@@ -1,8 +1,8 @@
-package Tingeso.MicroServiceMilkStgoPlanillaPagoLeche.controller;
+package tingeso.backendplanilladepagoservice.controller;
 
-import Tingeso.MicroServiceMilkStgoPlanillaPagoLeche.entity.QuincenasEntity;
-import Tingeso.MicroServiceMilkStgoPlanillaPagoLeche.service.QuincenasService;
-import Tingeso.MicroServiceMilkStgoPlanillaPagoLeche.model.*;
+import tingeso.backendplanilladepagoservice.entity.QuincenasEntity;
+import tingeso.backendplanilladepagoservice.service.QuincenasService;
+import tingeso.backendplanilladepagoservice.model.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;

@@ -1,7 +1,7 @@
 package tingeso.backendgrasaysolidostotalesservice.service;
 
-import Tingeso.MicroServiceMilkStgoGrasaYSolidosTotales.entity.GrasaSolidoTotalEntity;
-import Tingeso.MicroServiceMilkStgoGrasaYSolidosTotales.repository.GrasaSolidoTotalRepository;
+import tingeso.backendgrasaysolidostotalesservice.entity.GrasaSolidoTotalEntity;
+import tingeso.backendgrasaysolidostotalesservice.repository.GrasaSolidoTotalRepository;
 import lombok.Generated;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

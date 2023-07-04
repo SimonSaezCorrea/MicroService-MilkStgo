@@ -1,4 +1,4 @@
-package Tingeso.MicroServiceMilkStgoPlanillaPagoLeche.entity;
+package tingeso.backendplanilladepagoservice.entity;
 
 import javax.persistence.*;
 import lombok.AllArgsConstructor;

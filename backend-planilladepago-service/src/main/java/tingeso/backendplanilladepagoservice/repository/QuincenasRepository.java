@@ -1,6 +1,6 @@
-package Tingeso.MicroServiceMilkStgoPlanillaPagoLeche.repository;
+package tingeso.backendplanilladepagoservice.repository;
 
-import Tingeso.MicroServiceMilkStgoPlanillaPagoLeche.entity.QuincenasEntity;
+import tingeso.backendplanilladepagoservice.entity.QuincenasEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
