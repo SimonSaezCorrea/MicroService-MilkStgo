@@ -1,67 +1,88 @@
 D:
 cd Simon/progra/IdeaProjects/MicroService-MilkStgo/
-cd Config
-mvn clean
-mvn package
+
+cd backend-config-service
+mvn clean install -DskipTests=True
 docker build -t simonsaez/minikube-microservice-milkstgo-config .
 docker push simonsaez/minikube-microservice-milkstgo-config
 cd ../
-cd Eureka
-mvn clean
-mvn package
+
+cd backend-eureka-service
+mvn clean install -DskipTests=True
 docker build -t simonsaez/minikube-microservice-milkstgo-eureka .
 docker push simonsaez/minikube-microservice-milkstgo-eureka
 cd ../
-cd Gateway
-mvn clean
-mvn package
+
+cd backend-gateway-service
+mvn clean install -DskipTests=True
 docker build -t simonsaez/minikube-microservice-milkstgo-gateway .
 docker push simonsaez/minikube-microservice-milkstgo-gateway
 cd ../
-cd MicroService-MilkStgo-AcopioLeche
-mvn clean
-mvn package
+
+cd backend-acopioleche-service
+mvn clean install -DskipTests=True
 docker build -t simonsaez/minikube-microservice-milkstgo-acopioleche .
 docker push simonsaez/minikube-microservice-milkstgo-acopioleche
 cd ../
-cd MicroService-MilkStgo-GrasaYSolidosTotales
-mvn clean
-mvn package
+
+cd backend-grasaysolidostotales-service
+mvn clean install -DskipTests=True
 docker build -t simonsaez/minikube-microservice-milkstgo-grasaysolidostotales .
 docker push simonsaez/minikube-microservice-milkstgo-grasaysolidostotales 
 cd ../
-cd MicroService-MilkStgo-PlanillaPagoLeche
-mvn clean
-mvn package
+
+cd backend-planilladepago-service
+mvn clean install -DskipTests=True
 docker build -t simonsaez/minikube-microservice-milkstgo-planilladepago .
 docker push simonsaez/minikube-microservice-milkstgo-planilladepago
 cd ../
-cd MicroService-MilkStgo-Proveedores
-mvn clean
-mvn package
+
+cd backend-proveedor-service
+mvn clean install -DskipTests=True
 docker build -t simonsaez/minikube-microservice-milkstgo-proveedores .
 docker push simonsaez/minikube-microservice-milkstgo-proveedores
 cd ../
+
 cd frontend
 docker build -t simonsaez/minikube-microservice-milkstgo-frontend .
 docker push simonsaez/minikube-microservice-milkstgo-frontend
 cd ../
 
+---------------------------------------------------------
+
 minikube start
 minikube status
 
-kubectl apply -f postgres-secrets.yaml
-kubectl apply -f posTgres-dp-sv-cm-pv-pvc.yml
+cd Minikube
 
 kubectl apply -f frontend-deployment-service.yml
 
+kubectl apply -f postgres-secrets.yml
+kubectl apply -f postgres-configmap.yml
+kubectl apply -f posTgres-dp-sv-pvc.yml
+
 kubectl apply -f backend-config-deployment-service.yml
 kubectl apply -f backend-eureka-deployment-service.yml
+
 kubectl apply -f backend-acopioleche-deployment-service.yml
+kubectl apply -f backend-proveedor-deployment-service.yml
 kubectl apply -f backend-grasaysolidostotales-deployment-service.yml
 kubectl apply -f backend-planilladepago-deployment-service.yml
-kubectl apply -f backend-proveedor-deployment-service.yml
 kubectl apply -f backend-gateway-deployment-service.yml
+
+---------------------------------------------------------
+
+kubectl delete deployments frontend-deployment
+kubectl delete services frontend-service
+
+kubectl delete deployments postgres
+kubectl delete services postgres
+kubectl delete PersistentVolumeClaims postgres-persistent-volume-claim
+kubectl delete PersistentVolumes postgres-persistent-volume-claim
+
+kubectl delete ConfigMap postgres-config-map
+
+kubectl delete Secret postgres-credentials
 
 kubectl delete deployments backend-config-deployment
 kubectl delete services backend-config-service
@@ -84,13 +105,28 @@ kubectl delete services backend-planilladepago-service
 kubectl delete deployments backend-acopioleche-deployment
 kubectl delete services backend-acopioleche-service
 
-
+---------------------------------------------------------
 
 kubectl get pods
 kubectl get services
 kubectl get deployments
+kubectl get persistentvolumeclaims
+kubectl get persistentvolume
+kubectl get configmaps
+kubectl get secrets
+
+kubectl get all
 
 kubectl logs <Name pods>
+
+kubectl exec -it <Name pods postgres> bash
+psql -h postgres -U postgres
+
+CREATE DATABASE milkstgo_microservice_acopioLeche;
+CREATE DATABASE milkstgo_microservice_proveedores;
+CREATE DATABASE milkstgo_microservice_grasaysolidototales;
+CREATE DATABASE milkstgo_microservice_planillapagoleche;
+
 
 minikube service frontend-service
 minikube dashboard

@@ -26,19 +26,19 @@ spring:
             allowed-headers: "*"
             allow-credentials: true
       routes:
-        - id: MicroService-MilkStgo-AcopioLeche
-          uri: lb://MicroService-MilkStgo-AcopioLeche
+        - id: backend-acopioleche-service
+          uri: lb://backend-acopioleche-service
           predicates:
             - Path=/acopio_leche/**
-        - id: MicroService-MilkStgo-GrasaYSolidosTotales
-          uri: lb://MicroService-MilkStgo-GrasaYSolidosTotales
+        - id: backend-grasaysolidostotales-service
+          uri: lb://backend-grasaysolidostotales-service
           predicates:
             - Path=/grasa_solidos_totales/**
-        - id: MicroService-MilkStgo-PlanillaPagoLeche
-          uri: lb://MicroService-MilkStgo-PlanillaPagoLeche
+        - id: backend-planilladepago-service
+          uri: lb://backend-planilladepago-service
           predicates:
             - Path=/pago_planilla/**
-        - id: MicroService-MilkStgo-Proveedores
-          uri: lb://MicroService-MilkStgo-Proveedores
+        - id: backend-proveedor-service
+          uri: lb://backend-proveedor-service
           predicates:
             - Path=/proveedor/**
