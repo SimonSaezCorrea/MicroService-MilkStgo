@@ -37,10 +37,10 @@ public class QuincenasService {
 
     public List<ProveedorEntity> getProveedores(){
 
-        //List<ProveedorEntity> proveedores = restTemplate.getForObject("http://MicroService-MilkStgo-Proveedores/proveedor/", List.class);
+        //List<ProveedorEntity> proveedores = restTemplate.getForObject("http://backend-proveedor-service/proveedor/", List.class);
 
         ResponseEntity<List<ProveedorEntity>> response = restTemplate.exchange(
-                "http://MicroService-MilkStgo-Proveedores/proveedor/",
+                "http://backend-proveedor-service/proveedor/",
                 HttpMethod.GET,
                 null,
                 new ParameterizedTypeReference<List<ProveedorEntity>>() {}
@@ -50,7 +50,7 @@ public class QuincenasService {
 
     public List<AcopioLecheEntity> getAcopioLeche(String proveedor_id){
         ResponseEntity<List<AcopioLecheEntity>> response = restTemplate.exchange(
-                "http://MicroService-MilkStgo-AcopioLeche/acopio_leche/proveedores/" + proveedor_id,
+                "http://backend-acopioleche-service/acopio_leche/proveedores/" + proveedor_id,
                 HttpMethod.GET,
                 null,
                 new ParameterizedTypeReference<List<AcopioLecheEntity>>() {}
@@ -60,7 +60,7 @@ public class QuincenasService {
 
     public List<GrasaSolidoTotalEntity> getGrasaSolidoTotal(){
         ResponseEntity<List<GrasaSolidoTotalEntity>> response = restTemplate.exchange(
-                "http://MicroService-MilkStgo-GrasaYSolidosTotales/grasa_solidos_totales",
+                "http://backend-grasaysolidostotales-service/grasa_solidos_totales",
                 HttpMethod.GET,
                 null,
                 new ParameterizedTypeReference<List<GrasaSolidoTotalEntity>>() {}

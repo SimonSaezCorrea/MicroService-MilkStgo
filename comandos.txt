@@ -131,4 +131,5 @@ CREATE DATABASE milkstgo_microservice_planillapagoleche;
 
 
 minikube service frontend-service
+minikube tunnel
 minikube dashboard

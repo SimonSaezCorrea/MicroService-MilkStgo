@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import PlanillaDePagoTodoUsuarioService from "../services/PlanillaDePagoTodoUsuarioService";
+import PlanillaDePagoService from "../services/PlanillaDePagoService";
 import HeaderComponentVentanaSiguiente from "./Headers/HeaderComponentVentanaSiguiente";
 import swal from "sweetalert";
 import Form from 'react-bootstrap/Form';
@@ -14,7 +14,7 @@ export default function PlanillaDePagoTodoUsuarioComponent(props) {
     const navigate = useNavigate();
     const [input, setInput] = useState(initialState);
     useEffect(() => {
-        PlanillaDePagoTodoUsuarioService.getPlanillaDePagoTodoUsuario().then((res) => {
+        PlanillaDePagoService.getPlanillaDePagoTodoUsuario().then((res) => {
             setInput({ ...input, listPlanillaDePagoTodoUsuario: res.data }); // Actualizar el estado correctamente
         });
     }, []);
@@ -29,7 +29,7 @@ export default function PlanillaDePagoTodoUsuarioComponent(props) {
         }).then((respuesta) => {
             if (respuesta) {
                 console.log("proveedor: " + input.proveedor_id);
-                PlanillaDePagoTodoUsuarioService.createPlanillaDePagoTodoUsuario(input.proveedor_id).then((res) => {});
+                PlanillaDePagoService.createPlanillaDePagoTodoUsuario(input.proveedor_id).then((res) => {});
             } else {
                 swal({ text: "Cálculo no hecho.", icon: "error" });
             }

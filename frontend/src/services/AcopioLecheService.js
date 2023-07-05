@@ -11,6 +11,9 @@ class AcopioLecheService {
     createAcopioLeche(acopioLeche){
         return axios.post(ACOPIOLECHE_API_URL, acopioLeche);
     }
+    CargarArchivoAcopio(file){
+        return axios.post(ACOPIOLECHE_API_URL + "/subirAcopioLeche", file);
+    }
 }
 
 export default new AcopioLecheService()
